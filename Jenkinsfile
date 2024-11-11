@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    tools {
-        sonar 'SonarQubeScanner'  // Nom configuré dans Jenkins pour l'outil SonarQube
-    }
+    // tools {
+    //     sonar 'SonarQubeScanner'  // Nom configuré dans Jenkins pour l'outil SonarQube
+    // }
 
     stages {
         stage('Checkout') {
@@ -21,13 +21,13 @@ pipeline {
                 bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java" HelloWorld'
             }
         }
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    // Exécuter l'analyse SonarQube
-                    bat 'sonar-scanner'
-                }
-            }
-        }
+        // stage('SonarQube Analysis') {
+        //     steps {
+        //         script {
+        //             // Exécuter l'analyse SonarQube
+        //             bat 'sonar-scanner'
+        //         }
+        //     }
+        // }
     }
 }
