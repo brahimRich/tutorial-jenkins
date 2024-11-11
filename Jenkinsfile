@@ -23,13 +23,14 @@ pipeline {
     steps {
         script {
             // Exécuter l'analyse SonarQube
-            def scannerHome = tool 'SonarQubeScanner'
-            withSonarQubeEnv('SonarQube') {
+            def scannerHome = tool 'SonarQubeScanner'  // Assurez-vous que 'SonarQubeScanner' est configuré
+            withSonarQubeEnv('SonarQube') { // Assurez-vous que 'SonarQube' est bien défini dans Jenkins
                 bat "${scannerHome}\\bin\\sonar-scanner.bat"
             }
         }
     }
 }
+
 
 
     }
