@@ -18,5 +18,19 @@ pipeline {
                 bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java" HelloWorld'
             }
         }
+
+        stage('SonarQube Analysis') {
+    steps {
+        script {
+            // Exécuter l'analyse SonarQube
+            def scannerHome = tool 'SonarQubeScanner'
+            withSonarQubeEnv('SonarQube') {
+                bat "${scannerHome}\\bin\\sonar-scanner.bat"
+            }
+        }
+    }
+}
+
+
     }
 }
