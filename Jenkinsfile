@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    tools {
+        sonarQubeScanner 'SonarQubeScanner' // Assurez-vous que le nom correspond à celui que vous avez configuré
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -16,15 +21,11 @@ pipeline {
                 bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java" HelloWorld'
             }
         }
-
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    // Assurez-vous que 'SonarQubeScanner' est configuré correctement dans Jenkins
-                    def scannerHome = tool 'SonarQubeScanner'  
-                    withSonarQubeEnv('SonarQube') { 
-                        bat "${scannerHome}\\bin\\sonar-scanner.bat"
-                    }
+                    // Exécuter l'analyse SonarQube
+                    sh 'sonar-scanner'
                 }
             }
         }
