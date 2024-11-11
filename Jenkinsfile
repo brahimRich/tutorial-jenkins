@@ -9,14 +9,14 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                // Compile le fichier Java
-                sh 'javac HelloWorld.java'
+                // Compile le fichier Java sous Windows
+                bat 'javac HelloWorld.java'
             }
         }
         stage('Run') {
             steps {
-                // Exécute le programme Java
-                sh 'java HelloWorld'
+                // Exécute le programme Java sous Windows
+                bat 'java HelloWorld'
             }
         }
     }
