@@ -3,20 +3,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Clonez le code source depuis un dépôt Git
                 checkout scm
             }
         }
         stage('Compile') {
             steps {
-                // Compile le fichier Java sous Windows
-                bat 'javac HelloWorld.java'
+                // Utiliser le chemin complet de javac pour compiler le fichier Java
+                bat '"C:\\Program Files\\Java\\jdk-21\\bin\\javac" HelloWorld.java'
             }
         }
         stage('Run') {
             steps {
-                // Exécute le programme Java sous Windows
-                bat 'java HelloWorld'
+                // Utiliser le chemin complet de java pour exécuter le programme
+                bat '"C:\\Program Files\\Java\\jdk-21\\bin\\java" HelloWorld'
             }
         }
     }
