@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     tools {
-        // Utilisez SonarRunnerInstallation comme outil au lieu de sonarQubeScanner
-        sonarQube 'SonarQubeScanner'  // Assurez-vous que 'SonarQubeScanner' est le nom configuré dans Jenkins
+        sonar 'SonarQubeScanner'  // Nom configuré dans Jenkins pour l'outil SonarQube
     }
 
     stages {
